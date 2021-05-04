@@ -1,9 +1,7 @@
 Projeto de Banco de Dados
 
-Caroline Ferreira Pinto e 
+Alunas: Caroline Ferreira Pinto e Gabriella Tavares Peixoto
 
-Gabriella Tavares Peixoto
-
-Tema:
+Tema: 
 
 Construção de um Banco de Dados com o tema livre escolhido pelos alunos e validado pela docente.
