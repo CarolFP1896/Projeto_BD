@@ -1,6 +1,7 @@
 Projeto de Banco de Dados
 
-Caroline Ferreira Pinto
+Caroline Ferreira Pinto e 
+
 Gabriella Tavares Peixoto
 
 Tema:
