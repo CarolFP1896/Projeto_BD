@@ -5,5 +5,4 @@ Gabriella Tavares Peixoto
 
 Tema:
 
-Construção de um Banco de Dados com o tema livre escolhido pelos alunos e validado
-pela docente.
+Construção de um Banco de Dados com o tema livre escolhido pelos alunos e validado pela docente.
