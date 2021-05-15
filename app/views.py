@@ -5,6 +5,8 @@ from django.core.paginator import Paginator
 
 # Create your views here.
 def login(request):
+  data = {}
+  data['form'] = UsuariosForm()
   if request.method == "POST":
     data = UsuariosForm(request.POST)
     user = (data["email"].value())
@@ -24,7 +26,7 @@ def home(request):
   else:
     data['db'] = Usuarios.objects.all()
   all = Usuarios.objects.all()
-  paginator = Paginator(all, 2)
+  paginator = Paginator(all, 4)
   pages = request.GET.get('page')
   data['db'] = paginator.get_page(pages)
   return render(request, 'index.html', data)
