@@ -1,8 +1,13 @@
-from django.forms import ModelForm
-from app.models import Carros
+from django import forms
+from django.forms import ModelForm, widgets
+from app.models import Usuarios
 
 # Create the form class.
-class CarrosForm(ModelForm):
+class UsuariosForm(ModelForm):
+  password = forms.CharField(widget=forms.PasswordInput())
   class Meta:
-    model = Carros
-    fields = ['modelo', 'marca', 'ano']
+    model = Usuarios
+    fields = ['nome', 'email', 'cpf', 'tipo', 'password']
+    # widgets = {
+    #   'password': forms.PasswordInput(),
+    # }

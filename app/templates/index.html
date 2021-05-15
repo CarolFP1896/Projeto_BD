@@ -2,66 +2,44 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8">
-    <title>CRUD com Python</title>
+    <title>Formulário</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
   <body>
-    <div class="col-8 m-auto pt-2 pb-2 text-center">
-      <h1>Crud com Python</h1>
+    <div class="col-8 m-auto pt-4 text-center">
+      <h1>Página Inicial</h1>
+      <h5>Você está logada!</h5>
     </div>
     
-    <div class="col-8 m-auto pt-3 pb-2 text-center">
-      <a href="/form" class="btn btn-success">Adicionar</a>
-    </div>
-
-    <div class="col-8 m-auto pt-3 pb-2 text-center">
-      <form method="get">
-        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar...">
-      </form>
-    </div>
-
-    <div class="col-8 m-auto pt-4 pb-2 text-center">
-      <table class="table table-striped">
-        <thead class="thead-dark">
+    <table id="table" class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dbs in db %}
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Ano</th>
-            <th scope="col">Ações</th>
+            <th>{{dbs.nome}}</th>
+            <td>{{dbs.email}}</td>
+            <td>{{dbs.cpf}}</td>
+            <td>
+              <a href="view/{{dbs.id}}/" class="btn btn-info btn-sm">Visualizar</a>
+              <a href="edit/{{dbs.id}}/" class="btn btn-secondary btn-sm">Editar</a>
+              <a href="delete/{{dbs.id}}/" class="btn btn-dark btn-sm btnDel">Deletar</a>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {% for dbs in db %}
-            <tr>
-              <th>{{dbs.id}}</th>
-              <td>{{dbs.modelo}}</td>
-              <td>{{dbs.marca}}</td>
-              <td>{{dbs.ano}}</td>
-              <td>
-                <a href="view/{{dbs.id}}/" class="btn btn-dark">Visualizar</a>
-                <a href="edit/{{dbs.id}}/" class="btn btn-primary">Editar</a>
-                <a href="delete/{{dbs.id}}/" class="btn btn-danger btnDel">Deletar</a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="d-inline p-2">
+      <a href="/login" class="btn btn-danger">Sair</a>
     </div>
-
-    <!-- <div class="pagination">
-      {% if db.has_previous %}
-        <a href="?page={{db.previous_page_number}}"> < </a>
-      {% endif %}
-
-      {{db.number}}
-
-      {% if db.has_next %}
-        <a href="?page={{db.next_page_number}}"> > </a>
-      {% endif %}
-    </div> -->
-
+    
     {% load static %}
     <script src="{% static 'javascript.js' %}"></script>
   </body>

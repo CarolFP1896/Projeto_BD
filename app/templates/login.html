@@ -8,22 +8,25 @@
 
   <body>
     <div class="col-8 m-auto pt-4 text-center">
-      <h1>Cadastro</h1>
+      <h1>Bem-vinda!</h1>
+      <h5>Entre com seu login ou faça seu cadastro!</h5>
     </div>
-
+    
     <div class="col-8 m-auto pt-4 text-center">
       <div id="result"></div>
-      <form name="form" id="form" action="{% if db %}/update/{{db.id}}/{% else %}/create/{% endif %}" method="post">
+      <form name="form" id="form" action="/login/" method="post">
         {% csrf_token %}
-        <div class="form-group mt-4">Nome: {{form.nome}}</div>
-        <div class="form-group mt-4">Email: {{form.email}}</div>
-        <div class="form-group mt-4">CPF: {{form.cpf}}</div>
+        <div class="form-group mt-4">Usuário: {{form.email}}</div>
+        <div class="form-group mt-4">Senha: {{form.password}}</div>
         <div>
           <div class="d-inline p-2">
-            <input type="submit" class="btn btn-secondary" value="Cadastrar">
+            <a href="/">
+              <input type="button" class="btn btn-info" value="Entrar" />
+           </a>
+            <!-- <input type="submit" class="btn btn-info" value="Entrar"> -->
           </div>
           <div class="d-inline p-2">
-            <a href="/login" class="btn btn-info">Voltar</a>
+            <a href="/form" class="btn btn-secondary">Cadastrar</a>
           </div>
         </div>
       </form>
